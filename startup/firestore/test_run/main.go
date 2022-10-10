@@ -39,7 +39,7 @@ func main() {
 		"born":   1912,
 	})
 	if err != nil {
-		log.Fatalf("Failed adding aturing: %v", err)
+		log.Fatalf("Failed adding turing: %v", err)
 	}
 	// [END firestore_setup_dataset_pt2]
 
