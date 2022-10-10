@@ -8,7 +8,7 @@ import (
 	"cloud.google.com/go/firestore"
 )
 
-func createClient(ctx context.Context, projID string) (*firestore.Client, error) {
+func CreateClient(ctx context.Context, projID string) (*firestore.Client, error) {
 	client, err := firestore.NewClient(ctx, projID)
 	if err != nil {
 		return nil, fmt.Errorf("firestore.NewClient: %v", err)

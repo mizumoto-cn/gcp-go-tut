@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	firestorex "github.com/mizumoto-cn/gcp-go-tut/firestore"
+	firestorex "github.com/mizumoto-cn/gcp-go-tut/startup/firestore"
 	"google.golang.org/api/iterator"
 )
 
@@ -14,10 +14,10 @@ func main() {
 	projID := "my-project-apigee-364705"
 
 	client, err := firestorex.CreateClient(ctx, projID)
-	defer client.Close()
 	if err != nil {
 		log.Fatalf("Failed adding client: %v", err)
 	}
+	defer client.Close()
 
 	// [START firestore_setup_dataset_pt1]
 	_, _, err = client.Collection("users").Add(ctx, map[string]interface{}{

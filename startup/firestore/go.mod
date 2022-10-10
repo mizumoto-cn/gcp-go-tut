@@ -2,7 +2,10 @@ module github.com/mizumoto-cn/gcp-go-tut/startup/firestore
 
 go 1.19
 
-require cloud.google.com/go/firestore v1.7.0
+require (
+	cloud.google.com/go/firestore v1.7.0
+	google.golang.org/api v0.98.0
+)
 
 require (
 	cloud.google.com/go v0.104.0 // indirect
@@ -20,7 +23,6 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
-	google.golang.org/api v0.98.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20220930163606-c98284e70a91 // indirect
 	google.golang.org/grpc v1.50.0 // indirect
