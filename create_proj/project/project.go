@@ -37,16 +37,16 @@ func (s State) String() string {
 //		}
 //	}
 type Project struct {
-	Name        string
-	Parent      string
-	ProjectId   string
-	State       State
-	DisplayName string
-	CreateTime  string
-	UpdateTime  string
-	DeleteTime  string
-	Etag        string
-	Labels      map[string]string
+	Name        string            `json:"name"`
+	Parent      string            `json:"parent"`
+	ProjectId   string            `json:"projectId"`
+	State       string            `json:"state"`
+	DisplayName string            `json:"displayName"`
+	CreateTime  string            `json:"createTime"`
+	UpdateTime  string            `json:"updateTime"`
+	DeleteTime  string            `json:"deleteTime"`
+	Etag        string            `json:"etag"`
+	Labels      map[string]string `json:"labels"`
 }
 
 type ProjectBuilder struct {
@@ -84,7 +84,7 @@ func (p *ProjectBuilder) SetParent(parent string) *ProjectBuilder {
 }
 
 func (p *ProjectBuilder) SetState(state State) *ProjectBuilder {
-	p.State = state
+	p.State = state.String()
 	return p
 }
 

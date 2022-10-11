@@ -13,8 +13,8 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:  "Create GCloud Project",
-		Usage: "Semi-automatic creating project",
+		Name:  "Create GCloud Project - API",
+		Usage: "More-semi-automatic creating project",
 		Flags: []cli.Flag{
 			&cli.StringFlag{
 				Name:    "name",
@@ -24,7 +24,7 @@ func main() {
 			&cli.StringFlag{
 				Name:    "project-id",
 				Usage:   "Project ID",
-				Aliases: []string{"p"},
+				Aliases: []string{"i"},
 			},
 			&cli.StringFlag{
 				Name:    "labels",
@@ -55,7 +55,7 @@ func main() {
 			if err != nil {
 				return err
 			}
-			err = createproj.CreateProj(p)
+			err = createproj.CreateProj(p, createproj.API)
 			if err != nil {
 				return err
 			}
