@@ -5,7 +5,7 @@ $WORKFLOW = "myEventWorkflow"
 
 .\0_setup.ps1 $TRIGGER_SA $PROJECT_ID
 
-.\1_create_workflow.ps1 $TRIGGER_SA $PROJECT_ID $WORKFLOW
+.\1_trigger_creation.ps1 $TRIGGER_SA $PROJECT_ID $WORKFLOW
 
 
 gsutil cp test.csv gs://${PROJECT_ID}-bucket/test.csv
