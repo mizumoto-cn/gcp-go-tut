@@ -40,6 +40,8 @@
                         jobType: LOAD
                         load:
                             sourceUris: ${file_path}
+                            sourceFormat: CSV
+                            autodetect : true
                             writeDisposition: "WRITE_TRUNCATE"
                             destinationTable:
                                 projectId: ${project_id}
