@@ -1,7 +1,7 @@
-$PROJECT_ID = args[0]
-$WORKFLOW = args[1]
+$PROJECT_ID = $args[0]
+$WORKFLOW = $args[1]
 
-echo "Hello World" > random.txt
-gsutil cp random.txt gs://${PROJECT_ID}-bucket/random.txt
 
-gcloud workflows executions list ${WORKFLOW} --limit=2
+gsutil cp test.csv gs://${PROJECT_ID}-bucket/test.csv
+
+gcloud workflows executions list ${WORKFLOW} --limit=2 --location=asia-northeast1
