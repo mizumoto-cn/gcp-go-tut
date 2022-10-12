@@ -1,6 +1,6 @@
-$WORKFLOW = args[0]
-$TRIGGER_SA = args[1]
-$PROJECT_ID = args[2]
+$TRIGGER_SA = $args[0]
+$PROJECT_ID = $args[1]
+$WORKFLOW = $args[2]
 
 # Create the Storage Bucket
 gsutil mb -l asia-northeast1 gs://${PROJECT_ID}-bucket/
@@ -14,13 +14,17 @@ gcloud workflows deploy ${WORKFLOW} --source=${WORKFLOW}.yaml --location=asia-no
 # These flags are required:
 # --event-filters="type=EVENT_FILTER_TYPE"
 # --event-filters="bucket=BUCKET"
+$DQUOTE = '"'
+$BUCKET_FILTER = "bucket=${DQUOTE}${PROJECT_ID}-bucket${DQUOTE}"
+$SA_FOR_TRIGGER = "${DQUOTE}${TRIGGER_SA}@${PROJECT_ID}.iam.gserviceaccount.com${DQUOTE}"
+
 gcloud eventarc triggers create gcs-workflows-trigger `
 --location=asia-northeast1 `
 --destination-workflow=${WORKFLOW}  `
 --destination-workflow-location=asia-northeast1 `
 --event-filters="type=google.cloud.storage.object.v1.finalized"  `
---event-filters="bucket=${PROJECT_ID}-bucket" `
---service-account="${TRIGGER_SA}@${PROJECT_ID}.iam.gserviceaccount.com"
+--event-filters=${BUCKET_FILTER} `
+--service-account=${SA_FOR_TRIGGER}
 
 # List the triggers
 gcloud eventarc triggers list --location=asia-northeast1
