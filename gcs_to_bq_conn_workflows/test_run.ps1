@@ -6,7 +6,12 @@ $WORKFLOW = "myEventWorkflow"
 .\0_setup.ps1 $TRIGGER_SA $PROJECT_ID
 
 .\1_trigger_creation.ps1 $TRIGGER_SA $PROJECT_ID $WORKFLOW
+# For new projects, you may need to run 1_trigger_creation.ps1 twice.
+# The first time, it will fail with the error:
+# ERROR: (gcloud.workflows.deploy) FAILED_PRECONDITION: Workflows service agent does not exist
+# ERROR: (gcloud.eventarc.triggers.describe) NOT_FOUND: Resource 'projects/bq-conn-jobload-id/locations/asia-northeast1/triggers/gcs-workflows-trigger' was not found
 
+# .\1_trigger_creation.ps1 $TRIGGER_SA $PROJECT_ID $WORKFLOW
 
 gsutil cp test.csv gs://${PROJECT_ID}-bucket/test.csv
 
