@@ -4,9 +4,9 @@
 *.dll
 *.so
 *.dylib
+*.xlsx
 variables.txt
 arg.json
-test.csv
 
 # Test binary, built with `go test -c`
 *.test
