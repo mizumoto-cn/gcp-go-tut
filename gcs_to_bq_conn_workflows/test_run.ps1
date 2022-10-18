@@ -22,3 +22,6 @@ gcloud workflows executions list ${WORKFLOW} --limit=5 --location=asia-northeast
 
 echo "After you get the execution ID, run the following command to get the execution status:"
 echo "gcloud workflows executions describe <execution_id> --location=asia-northeast1"
+
+Start-Sleep -s 10
+bq query "select * from dataset_test.table_test limit 5"
