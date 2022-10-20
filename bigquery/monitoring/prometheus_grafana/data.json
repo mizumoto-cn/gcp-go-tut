@@ -1,0 +1,44 @@
+{
+    "insertId": "-dl2vyre149zc",
+    "logName": "projects/hisol-bps-apigee-project1/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+        "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+        "authenticationInfo": {
+            "principalEmail": "beidou.li.sf@gc.hitachi-solutions.com"
+        },
+        "authorizationInfo": [
+            {
+                "granted": true,
+                "permission": "bigquery.tables.delete",
+                "resource": "projects/hisol-bps-apigee-project1/datasets/test_dataset/tables/tmp",
+                "resourceAttributes": {}
+            }
+        ],
+        "metadata": {
+            "@type": "type.googleapis.com/google.cloud.audit.BigQueryAuditMetadata",
+            "tableDeletion": {
+                "reason": "TABLE_DELETE_REQUEST"
+            }
+        },
+        "methodName": "google.cloud.bigquery.v2.TableService.DeleteTable",
+        "requestMetadata": {
+            "callerIp": "155.190.48.5",
+            "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.42,gzip(gfe)",
+            "destinationAttributes": {},
+            "requestAttributes": {}
+        },
+        "resourceName": "projects/hisol-bps-apigee-project1/datasets/test_dataset/tables/tmp",
+        "serviceName": "bigquery.googleapis.com",
+        "status": {}
+    },
+    "receiveTimestamp": "2022-10-19T04:34:03.845430909Z",
+    "resource": {
+        "labels": {
+            "dataset_id": "test_dataset",
+            "project_id": "hisol-bps-apigee-project1"
+        },
+        "type": "bigquery_dataset"
+    },
+    "severity": "NOTICE",
+    "timestamp": "2022-10-19T04:34:03.61693Z"
+}
